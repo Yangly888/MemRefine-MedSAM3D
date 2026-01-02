@@ -51,14 +51,14 @@ data/btcv/
  **Step1:** Download [FLARE22](https://flare22.grand-challenge.org/) dataset manually from [here](https://flare22.grand-challenge.org/), or prepare your own dataset and organize it as follows:
 
 ```
-data/flare/
-├── imagesTr/
-└── labelsTr/
+data/FLARE22/
+├── images/
+└── labels/
 ```
 
 **Step2:** Run the training and validation by:
 
-``python train_3d.py -net sam2 -exp_name FLARE_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset flare -data_path ./data/flare -cpgf 1 -use_lgff 1 ``
+``python train_3d.py -net sam2 -exp_name FLARE_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset flare -data_path ./data/FLARE22 -cpgf 1 -use_lgff 1 ``
 
 ## 📝 Cite
  ~~~
