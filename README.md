@@ -44,7 +44,7 @@ data/btcv/
 
 **Step2:** Run the training and validation by:
 
-``python train_3d.py -net sam2 -exp_name BTCV_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset btcv -data_path ./data/btcv -cpgf 1          -use_lgff 1 ``
+``python train_3d.py -net sam2 -exp_name BTCV_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset btcv -data_path ./data/btcv -cpgf 1  -use_lgff 1 ``
 
  ### 3D case - FLARE22 Abdominal Multiple Organs Segmentation
 
