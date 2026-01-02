@@ -1,0 +1,75 @@
+<h1 align="center">● MemRefine-MedSAM3D: Enhancing 3D Medical Image Segmentation</h1>
+
+<p align="center">
+    <img src="https://img.shields.io/static/v1?label=license&message=Apache-2.0&color=white&style=flat" alt="License"/>
+</p>
+
+MemRefine-MedSAM3D is an advanced 3D medical image segmentation model that utilizes the [SAM 2](https://github.com/facebookresearch/segment-anything-2) framework to address 3D medical image segmentation tasks. The model introduces two novel modules: **CPGF (Cross-slice Progressive Gated Fusion)** for enhancing cross-slice contextual consistency, and **LGFF (Local-Global Feature Fusion)** for strengthening the representation of boundaries and fine-grained structures.
+
+## 🧐 Requirement
+
+ Install the environment:
+
+ ``conda env create -f environment.yml``
+
+ ``conda activate memrefine-medsam3d``
+
+ You can download SAM2 checkpoint from checkpoints folder:
+
+ ``bash download_ckpts.sh``
+
+ Further Note: We tested on the following system environment and you may have to handle some issue due to system difference.
+```
+Operating System: Ubuntu 22.04
+Conda Version: 23.7.4
+Python Version: 3.12.4
+```
+
+ ## 🎯 Example Cases
+ #### Download BTCV or FLARE or your own dataset and put in the ``data`` folder, create the folder if it does not exist ⚒️
+
+ ### 3D case - BTCV Abdominal Multiple Organs Segmentation
+
+ **Step1:** Download pre-processed [BTCV](https://www.synapse.org/#!Synapse:syn3193805/wiki/217752) dataset manually from [here](https://huggingface.co/datasets/jiayuanz3/btcv/tree/main), or using command lines:
+
+ ``wget https://huggingface.co/datasets/jiayuanz3/btcv/resolve/main/btcv.zip``
+
+ ``unzip btcv.zip``
+
+ Or organize your own dataset as follows:
+
+```
+data/btcv/
+├── imagesTr/
+├── imagesTs/
+├── labelsTr/
+└── labelsTs/
+```
+
+**Step2:** Run the training and validation by:
+
+``python train_3d.py -net sam2 -exp_name BTCV_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset btcv -data_path ./data/btcv -cpgf 1 -cpgf_heads 4 -cpgf_dim 32 -cpgf_topk 3 -cpgf_alpha_cap 0.4 -use_lgff 1 --seed 42``
+
+ ### 3D case - FLARE22 Abdominal Multiple Organs Segmentation
+
+ **Step1:** Download [FLARE22](https://flare22.grand-challenge.org/) dataset manually from [here](https://flare22.grand-challenge.org/), or prepare your own dataset and organize it as follows:
+
+```
+data/flare/
+├── imagesTr/
+└── labelsTr/
+```
+
+**Step2:** Run the training and validation by:
+
+``python train_3d.py -net sam2 -exp_name FLARE_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset flare -data_path ./data/flare -cpgf 1 -use_lgff 1 --seed 42``
+
+## 📝 Cite
+ ~~~
+@article{memrefine2025,
+    title={Enhancing 3D Medical Image Segmentation: Memory-Enhanced and Feature-Optimized Model},
+    author={Your Name},
+    journal={The Visual Computer},
+    year={2025}
+}
+ ~~~
