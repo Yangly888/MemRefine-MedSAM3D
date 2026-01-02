@@ -2,8 +2,8 @@
 
 MemRefine-MedSAM3D is an advanced 3D medical image segmentation model that utilizes the [SAM 2](https://github.com/facebookresearch/segment-anything-2) framework to address 3D medical image segmentation tasks. The model introduces two novel modules: **CPGF (Cross-slice Progressive Gated Fusion)** for enhancing cross-slice contextual consistency, and **LGFF (Local-Global Feature Fusion)** for strengthening the representation of boundaries and fine-grained structures.
 
-## 🔥 A Quick Overview 
- <div align="center"><img width="880" height="350" src="https://github.com/Yangly888/MemRefine-MedSAM3D/blob/main/vis/framework.png"></div>
+## 🩻 3D Abdomen Segmentation Visualisation
+ <div align="center"><img width="420" height="420" src="https://github.com/Yangly888/MemRefine-MedSAM3D/blob/main/vis/example.gif"></div>
 
 ## 🧐 Requirement
 
