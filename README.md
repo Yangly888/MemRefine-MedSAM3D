@@ -2,6 +2,9 @@
 
 MemRefine-MedSAM3D is an advanced 3D medical image segmentation model that utilizes the [SAM 2](https://github.com/facebookresearch/segment-anything-2) framework to address 3D medical image segmentation tasks. The model introduces two novel modules: **CPGF (Cross-slice Progressive Gated Fusion)** for enhancing cross-slice contextual consistency, and **LGFF (Local-Global Feature Fusion)** for strengthening the representation of boundaries and fine-grained structures.
 
+## 🔥 A Quick Overview 
+ <div align="center"><img width="880" height="350" src="https://github.comYangly888/MemRefine-MedSAM3D/blob/main/vis/framework.png"></div>
+
 ## 🧐 Requirement
 
  Install the environment:
@@ -32,29 +35,13 @@ Python Version: 3.12.4
 
  ``unzip btcv.zip``
 
- Or organize your own dataset as follows:
-
-```
-data/btcv/
-├── imagesTr/
-├── imagesTs/
-├── labelsTr/
-└── labelsTs/
-```
-
 **Step2:** Run the training and validation by:
 
 ``python train_3d.py -net sam2 -exp_name BTCV_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset btcv -data_path ./data/btcv -cpgf 1  -use_lgff 1 ``
 
  ### 3D case - FLARE22 Abdominal Multiple Organs Segmentation
 
- **Step1:** Download [FLARE22](https://flare22.grand-challenge.org/) dataset manually from [here](https://flare22.grand-challenge.org/), or prepare your own dataset and organize it as follows:
-
-```
-data/FLARE22/
-├── images/
-└── labels/
-```
+ **Step1:** Download [FLARE22](https://flare22.grand-challenge.org/) dataset manually from [here](https://flare22.grand-challenge.org/).
 
 **Step2:** Run the training and validation by:
 
