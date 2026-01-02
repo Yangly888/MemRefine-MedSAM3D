@@ -1,9 +1,5 @@
 <h1 align="center">● MemRefine-MedSAM3D: Enhancing 3D Medical Image Segmentation</h1>
 
-<p align="center">
-    <img src="https://img.shields.io/static/v1?label=license&message=Apache-2.0&color=white&style=flat" alt="License"/>
-</p>
-
 MemRefine-MedSAM3D is an advanced 3D medical image segmentation model that utilizes the [SAM 2](https://github.com/facebookresearch/segment-anything-2) framework to address 3D medical image segmentation tasks. The model introduces two novel modules: **CPGF (Cross-slice Progressive Gated Fusion)** for enhancing cross-slice contextual consistency, and **LGFF (Local-Global Feature Fusion)** for strengthening the representation of boundaries and fine-grained structures.
 
 ## 🧐 Requirement
@@ -48,7 +44,7 @@ data/btcv/
 
 **Step2:** Run the training and validation by:
 
-``python train_3d.py -net sam2 -exp_name BTCV_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset btcv -data_path ./data/btcv -cpgf 1 -cpgf_heads 4 -cpgf_dim 32 -cpgf_topk 3 -cpgf_alpha_cap 0.4 -use_lgff 1 --seed 42``
+``python train_3d.py -net sam2 -exp_name BTCV_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset btcv -data_path ./data/btcv -cpgf 1          -use_lgff 1 ``
 
  ### 3D case - FLARE22 Abdominal Multiple Organs Segmentation
 
@@ -62,13 +58,13 @@ data/flare/
 
 **Step2:** Run the training and validation by:
 
-``python train_3d.py -net sam2 -exp_name FLARE_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset flare -data_path ./data/flare -cpgf 1 -use_lgff 1 --seed 42``
+``python train_3d.py -net sam2 -exp_name FLARE_MemRefine -sam_ckpt ./checkpoints/sam2_hiera_small.pt -sam_config sam2_hiera_s -image_size 1024 -val_freq 5 -prompt bbox -prompt_freq 2 -dataset flare -data_path ./data/flare -cpgf 1 -use_lgff 1 ``
 
 ## 📝 Cite
  ~~~
 @article{memrefine2025,
     title={Enhancing 3D Medical Image Segmentation: Memory-Enhanced and Feature-Optimized Model},
-    author={Your Name},
+    author={Liying Yang, Shengwei Tian, et al},
     journal={The Visual Computer},
     year={2025}
 }
