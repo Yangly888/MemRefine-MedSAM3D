@@ -53,7 +53,7 @@ Python Version: 3.12.4
 @article{memrefine2025,
     title={Enhancing 3D Medical Image Segmentation: Memory-Enhanced and Feature-Optimized Model},
     author={Liying Yang, Shengwei Tian, et al},
-    journal={The Visual Computer},
+    note={Under review at The Visual Computer},
     year={2025}
 }
  ~~~
