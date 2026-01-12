@@ -79,10 +79,6 @@ def main():
     if len(mem_layers) == 0:
         optimizer2 = None
         scheduler2 = None
-    else:
-        optimizer2 = optim.Adam(mem_layers, lr=1e-8, betas=(0.9, 0.999), eps=1e-08, weight_decay=0, amsgrad=False)
-        # 记忆层：后期提升学习率到1e-5（手动调整，不使用scheduler）
-        scheduler2 = None
 
     #torch.autocast(device_type="cuda", dtype=torch.bfloat16).__enter__()
 

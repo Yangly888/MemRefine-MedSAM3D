@@ -1,6 +1,5 @@
 from .btcv import BTCV
 from .amos import AMOS
-from .flare import FLARE
 import torchvision.transforms as transforms
 from torch.utils.data import DataLoader
 
@@ -42,14 +41,6 @@ def get_dataloader(args):
 
         nice_train_loader = DataLoader(amos_train_dataset, batch_size=1, shuffle=True, num_workers=8, pin_memory=True)
         nice_test_loader = DataLoader(amos_test_dataset, batch_size=1, shuffle=False, num_workers=1, pin_memory=True)
-        '''end'''
-    elif args.dataset == 'flare':
-        '''flare data'''
-        flare_train_dataset = FLARE(args, args.data_path, transform = None, transform_msk= None, mode = 'Training', prompt=args.prompt)
-        flare_test_dataset = FLARE(args, args.data_path, transform = None, transform_msk= None, mode = 'Test', prompt=args.prompt)
-
-        nice_train_loader = DataLoader(flare_train_dataset, batch_size=1, shuffle=True, num_workers=8, pin_memory=True)
-        nice_test_loader = DataLoader(flare_test_dataset, batch_size=1, shuffle=False, num_workers=1, pin_memory=True)
         '''end'''
 
     else:
